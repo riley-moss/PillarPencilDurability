@@ -13,7 +13,8 @@ public class PencilTest {
 	public void setUp() {
 		pencil = new Pencil();
 	}
-
+	
+	//Tests for write() function
 	@Test
 	public void whenPencilIsPassedTwoStringsToWriteItReturnsAString() {
 		assertEquals("input", pencil.write("input",""));
@@ -24,5 +25,11 @@ public class PencilTest {
 		assertEquals("input output", pencil.write("input", " output"));
 	}
 	
+	@Test
+	public void whenPencilWritesSomethingItDegradesThePoint() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", " output");
+		assertTrue(prevPointDurability > pencil.getPointDurability());
+	}
 
 }

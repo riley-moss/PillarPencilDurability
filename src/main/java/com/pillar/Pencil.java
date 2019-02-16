@@ -1,10 +1,18 @@
 package com.pillar;
 
 public class Pencil {
-
-	public String write(String input, String adder) {
-		// TODO Auto-generated method stub
-		return input + adder;
+	private int pointDurability;
+	
+	public Pencil() {
+		pointDurability = 0;
 	}
 
+	public int getPointDurability() {
+		return pointDurability;
+	}
+	
+	public String write(String input, String adder) {
+		pointDurability--;
+		return input + adder;
+	}
 }
