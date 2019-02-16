@@ -7,9 +7,10 @@ import org.junit.Test;
 public class PencilTest {
 
 	@Test
-	public void whenPencilIsPassedAStringToWriteItReturnsAString() {
+	public void whenPencilIsPassedTwoStringsToWriteItReturnsAString() {
 		Pencil pencil = new Pencil();
-		assertEquals("string output", pencil.write("string output"));
+		assertEquals("input", pencil.write("input","output"));
 	}
+	
 
 }
