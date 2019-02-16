@@ -9,7 +9,13 @@ public class PencilTest {
 	@Test
 	public void whenPencilIsPassedTwoStringsToWriteItReturnsAString() {
 		Pencil pencil = new Pencil();
-		assertEquals("input", pencil.write("input","output"));
+		assertEquals("input", pencil.write("input",""));
+	}
+	
+	@Test
+	public void whenPencilIsPassedTwoStringsToWriteItReturnsTheStringsAppendedTogether() {
+		Pencil pencil = new Pencil();
+		assertEquals("input output", pencil.write("input", " output"));
 	}
 	
 
