@@ -31,5 +31,12 @@ public class PencilTest {
 		pencil.write("input", " output");
 		assertTrue(prevPointDurability > pencil.getPointDurability());
 	}
+	
+	@Test
+	public void whenPencilWritesALowercaseItDegradesbyOne() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", "a");
+		assertTrue(prevPointDurability == (pencil.getPointDurability() + 1));
+	}
 
 }
