@@ -46,5 +46,11 @@ public class PencilTest {
 		assertTrue(prevPointDurability == (pencil.getPointDurability() + 2));
 	}
 	
+	@Test
+	public void whenPencilWritesAnUpperCaseLetterItDegradesbyTwo() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", "A");
+		assertTrue(prevPointDurability == (pencil.getPointDurability() + 2));
+	}
 
 }

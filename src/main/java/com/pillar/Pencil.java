@@ -14,7 +14,11 @@ public class Pencil {
 	public String write(String input, String adder) {
 		int pointDegradation = 0;
 		for(int i = 0, n = adder.length(); i < n; i++) {
-			pointDegradation++;
+			char letter = adder.charAt(i);
+			if(Character.isLowerCase(letter))
+				pointDegradation++;
+			else if(Character.isUpperCase(letter))
+				pointDegradation += 2;
 		}
 		pointDurability -= pointDegradation;
 		return input + adder;
