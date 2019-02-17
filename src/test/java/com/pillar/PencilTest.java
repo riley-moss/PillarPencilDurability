@@ -108,4 +108,11 @@ public class PencilTest {
 		assertTrue(prevPointDurability > (pencilStub.getPointDurability()));
 	}
 	
+	//Test for erase()
+	@Test
+	public void whenPencilErasesNothingThePaperDoesNotChange() {
+		assertEquals("input", pencil.erase("input"," "));
+	}
+	
+	
 }

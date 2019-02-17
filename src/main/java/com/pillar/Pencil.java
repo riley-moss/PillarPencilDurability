@@ -45,4 +45,9 @@ public class Pencil {
 		}
 	}
 
+	public String erase(String input, String erasedWord) {
+		// TODO Auto-generated method stub
+		return input;
+	}
+
 }
