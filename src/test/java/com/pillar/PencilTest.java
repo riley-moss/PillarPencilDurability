@@ -11,7 +11,7 @@ public class PencilTest {
 	
 	@Before
 	public void setUp() {
-		pencil = new Pencil();
+		pencil = new Pencil(40000);
 	}
 	
 	//Tests for write() function
@@ -23,6 +23,13 @@ public class PencilTest {
 	@Test
 	public void whenPencilIsPassedTwoStringsToWriteItReturnsTheStringsAppendedTogether() {
 		assertEquals("input output", pencil.write("input", " output"));
+	}
+	
+	@Test
+	public void whenPencilWithoutAPointWritesAnythingItReturnsTheOriginalString() {
+		Pencil noPointPencil = new Pencil(0);
+		assertEquals("input ", noPointPencil.write("input", " output"));
+		assertEquals(0, noPointPencil.getPointDurability());
 	}
 	
 	//Tests for pencil point degradation
@@ -68,4 +75,12 @@ public class PencilTest {
 		pencil.write("input", "Aa");
 		assertTrue(prevPointDurability == (pencil.getPointDurability() + 3));		
 	}
+	
+	@Test
+	public void whenPencilWritesASpaceItDoesNotDegrade() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", " ");
+		assertTrue(prevPointDurability == (pencil.getPointDurability()));
+	}
+	
 }
