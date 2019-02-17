@@ -3,14 +3,20 @@ package com.pillar;
 public class Pencil {
 	private int initialPointDurability;
 	private int currentPointDurability;
+	private int pencilLength;
 	
-	public Pencil(int pointDurability) {
+	public Pencil(int pencilLength, int pointDurability) {
+		this.pencilLength = pencilLength;
 		this.initialPointDurability = pointDurability;
 		this.currentPointDurability = pointDurability;
 	}
 
 	public int getPointDurability() {
 		return currentPointDurability;
+	}
+	
+	public int getLength() {
+		return pencilLength;
 	}
 	
 	public String write(String input, String adder) {
@@ -34,5 +40,7 @@ public class Pencil {
 
 	public void sharpen() {
 		currentPointDurability = initialPointDurability;
+		pencilLength--;
 	}
+
 }

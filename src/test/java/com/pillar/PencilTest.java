@@ -11,7 +11,7 @@ public class PencilTest {
 	
 	@Before
 	public void setUp() {
-		pencil = new Pencil(40000);
+		pencil = new Pencil(10, 40000);
 	}
 	
 	//Tests for write() function
@@ -27,7 +27,7 @@ public class PencilTest {
 	
 	@Test
 	public void whenPencilWithoutAPointWritesAnythingItReturnsTheOriginalString() {
-		Pencil noPointPencil = new Pencil(0);
+		Pencil noPointPencil = new Pencil(10,0);
 		assertEquals("input ", noPointPencil.write("input", " output"));
 		assertEquals(0, noPointPencil.getPointDurability());
 	}
@@ -90,6 +90,13 @@ public class PencilTest {
 		pencil.write("input", " output");
 		pencil.sharpen();
 		assertTrue(prevPointDurability == (pencil.getPointDurability()));
+	}
+	
+	@Test
+	public void whenPencilIsSharpenedItsLengthIsReducedByOne() {
+		int prevPencilLength = pencil.getLength();
+		pencil.sharpen();
+		assertTrue(prevPencilLength == (pencil.getLength() + 1));
 	}
 	
 }
