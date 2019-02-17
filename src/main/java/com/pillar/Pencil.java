@@ -12,7 +12,10 @@ public class Pencil {
 	}
 	
 	public String write(String input, String adder) {
-		pointDurability--;
+		int pointDegradation = 0;
+		for(int i = 0, n = adder.length(); i < n; i++) {
+			pointDegradation++;
+		}
 		return input + adder;
 	}
 }

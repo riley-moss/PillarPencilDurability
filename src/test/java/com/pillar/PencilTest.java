@@ -33,10 +33,17 @@ public class PencilTest {
 	}
 	
 	@Test
-	public void whenPencilWritesALowercaseItDegradesbyOne() {
+	public void whenPencilWritesALowercaseLetterItDegradesbyOne() {
 		int prevPointDurability = pencil.getPointDurability();
 		pencil.write("input", "a");
 		assertTrue(prevPointDurability == (pencil.getPointDurability() + 1));
+	}
+	
+	@Test
+	public void whenPencilWritesTwoLowercaseLettersItDegradesbyTwo() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", "aa");
+		assertTrue(prevPointDurability == (pencil.getPointDurability() + 2));
 	}
 
 }
