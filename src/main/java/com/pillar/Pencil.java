@@ -16,6 +16,7 @@ public class Pencil {
 		for(int i = 0, n = adder.length(); i < n; i++) {
 			pointDegradation++;
 		}
+		pointDurability -= pointDegradation;
 		return input + adder;
 	}
 }

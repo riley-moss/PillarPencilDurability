@@ -45,5 +45,6 @@ public class PencilTest {
 		pencil.write("input", "aa");
 		assertTrue(prevPointDurability == (pencil.getPointDurability() + 2));
 	}
+	
 
 }
