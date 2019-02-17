@@ -83,4 +83,13 @@ public class PencilTest {
 		assertTrue(prevPointDurability == (pencil.getPointDurability()));
 	}
 	
+	//Tests for sharpen() function
+	@Test
+	public void whenPencilIsSharpenedItsPointDurabilityReturnsToInitialValue() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", " output");
+		pencil.sharpen();
+		assertTrue(prevPointDurability == (pencil.getPointDurability()));
+	}
+	
 }

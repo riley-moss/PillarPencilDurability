@@ -1,26 +1,28 @@
 package com.pillar;
 
 public class Pencil {
-	private int pointDurability;
+	private int initialPointDurability;
+	private int currentPointDurability;
 	
 	public Pencil(int pointDurability) {
-		this.pointDurability = pointDurability;
+		this.initialPointDurability = pointDurability;
+		this.currentPointDurability = pointDurability;
 	}
 
 	public int getPointDurability() {
-		return pointDurability;
+		return currentPointDurability;
 	}
 	
 	public String write(String input, String adder) {
 		String lettersAdded = "";
 		for(int i = 0, n = adder.length(); i < n; i++) {
 			char letter = adder.charAt(i);
-			if(Character.isLowerCase(letter) && pointDurability > 0) {
-				pointDurability--;
+			if(Character.isLowerCase(letter) && currentPointDurability > 0) {
+				currentPointDurability--;
 				lettersAdded += letter;
 			}
-			else if(Character.isUpperCase(letter) && pointDurability > 1) {
-				pointDurability -= 2;
+			else if(Character.isUpperCase(letter) && currentPointDurability > 1) {
+				currentPointDurability -= 2;
 				lettersAdded += letter;
 			}
 			else if (letter == ' ') {
@@ -28,5 +30,9 @@ public class Pencil {
 			}
 		}
 		return input + lettersAdded;
+	}
+
+	public void sharpen() {
+		currentPointDurability = initialPointDurability;
 	}
 }
