@@ -99,4 +99,13 @@ public class PencilTest {
 		assertTrue(prevPencilLength == (pencil.getLength() + 1));
 	}
 	
+	@Test
+	public void whenPencilLengthBecomesZeroItsPointDurabilityCannotBeRestored() {
+		Pencil pencilStub = new Pencil(0, 10000);
+		int prevPointDurability = pencilStub.getPointDurability();
+		pencilStub.write("input", " output");
+		pencilStub.sharpen();
+		assertTrue(prevPointDurability > (pencilStub.getPointDurability()));
+	}
+	
 }
