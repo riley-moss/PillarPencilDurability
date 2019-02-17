@@ -25,6 +25,7 @@ public class PencilTest {
 		assertEquals("input output", pencil.write("input", " output"));
 	}
 	
+	//Tests for pencil point degradation
 	@Test
 	public void whenPencilWritesSomethingItDegradesThePoint() {
 		int prevPointDurability = pencil.getPointDurability();
@@ -61,4 +62,10 @@ public class PencilTest {
 		
 	}
 
+	@Test
+	public void whenPencilWritesAnUpperCaseAndLowercaseItDegradesByThree() {
+		int prevPointDurability = pencil.getPointDurability();
+		pencil.write("input", "Aa");
+		assertTrue(prevPointDurability == (pencil.getPointDurability() + 3));		
+	}
 }
