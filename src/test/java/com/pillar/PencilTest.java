@@ -177,4 +177,10 @@ public class PencilTest {
 		String input = pencil.erase("this string has many words","string");
 		assertEquals("this a      has many words",pencil.edit(input, "a"));
 	}
+	
+	@Test
+	public void whenAPencilEditsEmptySpaceWithAShortWordItReturnsTheInputWithTheShortWordInTheEmptySpace() {
+		String input = pencil.erase("this string has many words","string");
+		assertEquals("this key    has many words",pencil.edit(input, "key"));
+	}
 }

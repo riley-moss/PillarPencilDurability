@@ -74,9 +74,10 @@ public class Pencil {
 	}
 
 	public Object edit(String input, String edits) {
-		if(edits.length() > 0) {
+		int editLength = edits.length();
+		if(editLength > 0) {
 			String updatedInput = input.substring(0, erasedPointer) + edits;
-			updatedInput += input.substring(erasedPointer + 1);
+			updatedInput += input.substring(erasedPointer + editLength);
 			return updatedInput;
 		}
 		return input;
