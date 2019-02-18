@@ -119,5 +119,8 @@ public class PencilTest {
 		assertEquals("input     output", pencil.erase("input and output","and"));
 	}
 	
-	
+	@Test
+	public void whenPencilErasesAWordWithMultipleOccurrencesItErasesTheLastOccurrence() {
+		assertEquals("input and output     input", pencil.erase("input and output and input","and"));
+	}
 }
