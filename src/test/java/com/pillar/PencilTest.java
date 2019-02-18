@@ -145,4 +145,11 @@ public class PencilTest {
 		pencil.erase("input and output and input","an");
 		assertTrue(prevEraserDurability == (pencil.getEraserDurability() + 2));
 	}
+	
+	@Test
+	public void whenPencilErasesASpaceItDoesNotDegrade() {
+		int prevEraserDurability = pencil.getEraserDurability();
+		pencil.erase("input and output and input"," ");
+		assertTrue(prevEraserDurability == pencil.getEraserDurability());
+	}
 }
