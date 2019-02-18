@@ -11,7 +11,7 @@ public class PencilTest {
 	
 	@Before
 	public void setUp() {
-		pencil = new Pencil(10, 40000, 10);
+		pencil = new Pencil(10, 40000, 1000);
 	}
 	
 	//Tests for write() function
@@ -27,7 +27,7 @@ public class PencilTest {
 	
 	@Test
 	public void whenPencilWithoutAPointWritesAnythingItReturnsTheOriginalString() {
-		Pencil noPointPencil = new Pencil(10, 0, 10);
+		Pencil noPointPencil = new Pencil(10, 0, 1000);
 		assertEquals("input ", noPointPencil.write("input", " output"));
 		assertEquals(0, noPointPencil.getPointDurability());
 	}
@@ -101,7 +101,7 @@ public class PencilTest {
 	
 	@Test
 	public void whenPencilLengthBecomesZeroItsPointDurabilityCannotBeRestored() {
-		Pencil pencilStub = new Pencil(0, 10000, 10);
+		Pencil pencilStub = new Pencil(0, 10000, 1000);
 		int prevPointDurability = pencilStub.getPointDurability();
 		pencilStub.write("input", " output");
 		pencilStub.sharpen();
@@ -129,6 +129,13 @@ public class PencilTest {
 	public void whenPencilErasesSomethingItDegradesTheEraser() {
 		int prevEraserDurability = pencil.getEraserDurability();
 		pencil.erase("input and output and input","and");
+		assertTrue(prevEraserDurability > pencil.getEraserDurability());
+	}
+	
+	@Test
+	public void whenPencilErasesALetterItDegradesTheEraserByOne() {
+		int prevEraserDurability = pencil.getEraserDurability();
+		pencil.erase("input and output and input","a");
 		assertTrue(prevEraserDurability > pencil.getEraserDurability());
 	}
 }
