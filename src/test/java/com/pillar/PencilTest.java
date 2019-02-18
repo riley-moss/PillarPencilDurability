@@ -138,4 +138,11 @@ public class PencilTest {
 		pencil.erase("input and output and input","a");
 		assertTrue(prevEraserDurability == (pencil.getEraserDurability() + 1));
 	}
+	
+	@Test
+	public void whenPencilErasesTwoLettersItDegradesTheEraserByTwo() {
+		int prevEraserDurability = pencil.getEraserDurability();
+		pencil.erase("input and output and input","an");
+		assertTrue(prevEraserDurability == (pencil.getEraserDurability() + 2));
+	}
 }

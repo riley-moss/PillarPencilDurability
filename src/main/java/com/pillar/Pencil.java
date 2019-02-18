@@ -57,9 +57,9 @@ public class Pencil {
 			String updatedInput = input.substring(0, index);
 			for(int i = 0, n = erasedWord.length(); i < n; i++) {
 				updatedInput += " ";
+				eraserDurability--;
 			}
 			updatedInput += input.substring(index + erasedWord.length());
-			eraserDurability--;
 			return updatedInput;
 		}
 		return input;
