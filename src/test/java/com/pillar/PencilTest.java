@@ -152,4 +152,10 @@ public class PencilTest {
 		pencil.erase("input and output and input"," ");
 		assertTrue(prevEraserDurability == pencil.getEraserDurability());
 	}
+	
+	@Test
+	public void whenPencilNoEraserErasesItReturnsTheInput() {
+		Pencil noEraserPencil = new Pencil(10, 1000, 0);
+		assertEquals("input and output", noEraserPencil.erase("input and output","and"));
+	}
 }
