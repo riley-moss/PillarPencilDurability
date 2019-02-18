@@ -25,6 +25,11 @@ public class PencilTest {
 		assertEquals("She sells sea shells down by the sea shore",
 				pencil.write("She sells sea shells", " down by the sea shore"));
 	}
+	
+	@Test
+	public void whenPencilWritesAStringWithPuncuationItReturnsStringProperly() {
+		assertEquals("Test String? Maybe.",pencil.write("Test String? ", "Maybe."));
+	}
 
 	@Test
 	public void whenPencilWithoutAPointWritesAnythingItReturnsTheOriginalString() {
