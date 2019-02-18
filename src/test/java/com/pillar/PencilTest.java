@@ -29,14 +29,14 @@ public class PencilTest {
 	@Test
 	public void whenPencilWithoutAPointWritesAnythingItReturnsTheOriginalString() {
 		Pencil noPointPencil = new Pencil(10, 0, 1000);
-		assertEquals("input ", noPointPencil.write("input", " output"));
+		assertEquals("input       ", noPointPencil.write("input", " output"));
 		assertEquals(0, noPointPencil.getPointDurability());
 	}
 
 	@Test
 	public void whenPencilDegradesDuringWritingItReturnsAPartialString() {
 		Pencil minimalPointPencil = new Pencil(10, 4, 1000);
-		assertEquals("input outp", minimalPointPencil.write("input", " output"));
+		assertEquals("input outp  ", minimalPointPencil.write("input", " output"));
 	}
 
 	// Tests for pencil point degradation

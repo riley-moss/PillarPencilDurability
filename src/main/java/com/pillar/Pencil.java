@@ -35,8 +35,8 @@ public class Pencil {
 			} else if (Character.isUpperCase(letter) && currentPointDurability > 1) {
 				currentPointDurability -= 2;
 				lettersAdded += letter;
-			} else if (letter == ' ') {
-				lettersAdded += letter;
+			} else if(currentPointDurability == 0 || letter == ' ') {
+				lettersAdded += ' ';
 			}
 		}
 		return input + lettersAdded;
