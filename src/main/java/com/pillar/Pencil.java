@@ -52,18 +52,21 @@ public class Pencil {
 	}
 
 	public String erase(String input, String erasedWord) {
-		if(eraserDurability > 0) {
-			int index = input.lastIndexOf(erasedWord);
-			if(index > 0 && erasedWord != "") {
-				String updatedInput = input.substring(0, index);
-				for(int i = 0, n = erasedWord.length(); i < n; i++) {
-					updatedInput += " ";
+		int index = input.lastIndexOf(erasedWord);
+		if(index > 0 && erasedWord != "" && eraserDurability > 0) {
+			String updatedInput = input.substring(0, index);
+			String temp = "";
+			for(int i = erasedWord.length()-1; i > -1; i--) {
+				if(eraserDurability > 0) {
+					temp = " " + temp;
 					if(erasedWord.charAt(i) != ' ')
 						eraserDurability--;
 				}
-				updatedInput += input.substring(index + erasedWord.length());
-				return updatedInput;
+				else
+					temp = erasedWord.charAt(i) + temp;
 			}
+			updatedInput += temp + input.substring(index + erasedWord.length());
+			return updatedInput;
 		}
 		return input;
 	}

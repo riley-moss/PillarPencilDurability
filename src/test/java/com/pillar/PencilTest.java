@@ -158,4 +158,10 @@ public class PencilTest {
 		Pencil noEraserPencil = new Pencil(10, 1000, 0);
 		assertEquals("input and output", noEraserPencil.erase("input and output","and"));
 	}
+	
+	@Test
+	public void whenPencilEraserRunsOutItErasesOnlyPartOfInput() {
+		Pencil lowEraserPencil = new Pencil(10, 1000, 3);
+		assertEquals("this str    has many words", lowEraserPencil.erase("this string has many words","string"));
+	}
 }
