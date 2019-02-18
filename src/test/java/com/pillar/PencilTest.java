@@ -190,5 +190,12 @@ public class PencilTest {
 		String input = pencil.erase("this string has many words","string");
 		assertEquals("this paragra@@s many words",pencil.edit(input, "paragraph"));
 	}
+	
+	@Test
+	public void whenDifferentPencilEditsEmptypSpaceItReturnsInputWithEmptySpaceEditedCorrectly() {
+		String input = pencil.erase("An apple a day keeps the doctor away", "apple");
+		Pencil diffPencil = new Pencil(5, 2000, 500);
+		assertEquals("An artich@k@ay keeps the doctor away", diffPencil.edit(input, "artichoke"));
+	}
 
 }

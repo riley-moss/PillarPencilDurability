@@ -5,7 +5,6 @@ public class Pencil {
 	private int initialPointDurability;
 	private int currentPointDurability;
 	private int eraserDurability;
-	private int erasedPointer;
 	
 	public Pencil(int pencilLength, int pointDurability, int eraserDurability) {
 		this.pencilLength = pencilLength;
@@ -55,7 +54,6 @@ public class Pencil {
 	public String erase(String input, String erasedWord) {
 		int index = input.lastIndexOf(erasedWord);
 		if(index > 0 && erasedWord != "" && eraserDurability > 0) {
-			erasedPointer = index;
 			String updatedInput = input.substring(0, index);
 			String temp = "";
 			for(int i = erasedWord.length()-1; i > -1; i--) {
@@ -75,10 +73,11 @@ public class Pencil {
 
 	public String edit(String input, String edits) {
 		int editLength = edits.length();
-		if(editLength > 0) {
-			String updatedInput = input.substring(0, erasedPointer);
+		int blankSpaceStart = findWhiteSpace(input);
+		if(editLength > 0 && blankSpaceStart != -1) {
+			String updatedInput = input.substring(0, blankSpaceStart);
 			for (int i = 0; i < editLength; i ++) {
-				if(input.charAt(erasedPointer + i) == ' ') {
+				if(input.charAt(blankSpaceStart + i) == ' ') {
 					updatedInput += edits.charAt(i);
 				}
 				else
@@ -86,11 +85,17 @@ public class Pencil {
 					updatedInput += "@";
 				}
 			}
-			updatedInput += input.substring(erasedPointer + editLength);
+			updatedInput += input.substring(blankSpaceStart + editLength);
 			return updatedInput;
 		}
 		return input;
 	}
 
-
+	private int findWhiteSpace(String input) {
+		for(int i = 1, n = input.length(); i < n; i++) {
+			if(input.charAt(i-1) == ' ' && input.charAt(i) == ' ')
+				return i;
+		}
+		return -1;
+	}
 }
