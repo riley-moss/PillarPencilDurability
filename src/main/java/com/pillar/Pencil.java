@@ -5,6 +5,7 @@ public class Pencil {
 	private int initialPointDurability;
 	private int currentPointDurability;
 	private int eraserDurability;
+	private int erasedPointer;
 	
 	public Pencil(int pencilLength, int pointDurability, int eraserDurability) {
 		this.pencilLength = pencilLength;
@@ -54,6 +55,7 @@ public class Pencil {
 	public String erase(String input, String erasedWord) {
 		int index = input.lastIndexOf(erasedWord);
 		if(index > 0 && erasedWord != "" && eraserDurability > 0) {
+			erasedPointer = index;
 			String updatedInput = input.substring(0, index);
 			String temp = "";
 			for(int i = erasedWord.length()-1; i > -1; i--) {
@@ -72,6 +74,11 @@ public class Pencil {
 	}
 
 	public Object edit(String input, String edits) {
+		if(edits.length() > 0) {
+			String updatedInput = input.substring(0, erasedPointer) + edits;
+			updatedInput += input.substring(erasedPointer + 1);
+			return updatedInput;
+		}
 		return input;
 	}
 
