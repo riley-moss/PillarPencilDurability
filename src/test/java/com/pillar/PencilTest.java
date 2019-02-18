@@ -25,10 +25,10 @@ public class PencilTest {
 		assertEquals("She sells sea shells down by the sea shore",
 				pencil.write("She sells sea shells", " down by the sea shore"));
 	}
-	
+
 	@Test
 	public void whenPencilWritesAStringWithPuncuationItReturnsStringProperly() {
-		assertEquals("Test String? Maybe.",pencil.write("Test String? ", "Maybe."));
+		assertEquals("Test String? Maybe 1.", pencil.write("Test String? ", "Maybe 1."));
 	}
 
 	@Test
@@ -94,7 +94,6 @@ public class PencilTest {
 		pencil.write("input", " ");
 		assertTrue(prevPointDurability == (pencil.getPointDurability()));
 	}
-	
 
 	// Tests for sharpen() function
 	@Test
