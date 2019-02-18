@@ -164,4 +164,11 @@ public class PencilTest {
 		Pencil lowEraserPencil = new Pencil(10, 1000, 3);
 		assertEquals("this str    has many words", lowEraserPencil.erase("this string has many words","string"));
 	}
+	
+	//Tests for edit() function
+	@Test
+	public void whenAPencilEditsEmptySpaceWithNothingItReturnsTheInput() {
+		String input = pencil.erase("this string has many words","string");
+		assertEquals("this        has many words",pencil.edit(input, ""));
+	}
 }

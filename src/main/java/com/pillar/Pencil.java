@@ -71,5 +71,9 @@ public class Pencil {
 		return input;
 	}
 
+	public Object edit(String input, String edits) {
+		return input;
+	}
+
 
 }
