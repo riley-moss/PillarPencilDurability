@@ -197,5 +197,11 @@ public class PencilTest {
 		Pencil diffPencil = new Pencil(5, 2000, 500);
 		assertEquals("An artich@k@ay keeps the doctor away", diffPencil.edit(input, "artichoke"));
 	}
+	
+	@Test
+	public void whenPencilEditsStringWithoutBlankSpaceItReturnsTheOriginalString() {
+		String input = "An apple a day keeps the doctor away";
+		assertEquals(input, pencil.edit(input, "artichoke"));
+	}
 
 }
