@@ -111,7 +111,12 @@ public class PencilTest {
 	//Test for erase()
 	@Test
 	public void whenPencilErasesNothingThePaperDoesNotChange() {
-		assertEquals("input", pencil.erase("input"," "));
+		assertEquals("input", pencil.erase("input",""));
+	}
+	
+	@Test
+	public void whenPencilErasesAWordItReturnsTheInputWithSpacesWhereTheWordWas() {
+		assertEquals("input     output", pencil.erase("input and output","and"));
 	}
 	
 	

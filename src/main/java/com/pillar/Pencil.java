@@ -46,7 +46,15 @@ public class Pencil {
 	}
 
 	public String erase(String input, String erasedWord) {
-		// TODO Auto-generated method stub
+		int index = input.lastIndexOf(erasedWord);
+		if(index > 0 && erasedWord != "") {
+			String updatedInput = input.substring(0, index);
+			for(int i = 0, n = erasedWord.length(); i < n; i++) {
+				updatedInput += " ";
+			}
+			updatedInput += input.substring(index + erasedWord.length());
+			return updatedInput;
+		}
 		return input;
 	}
 
