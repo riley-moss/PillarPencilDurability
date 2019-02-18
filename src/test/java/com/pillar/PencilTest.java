@@ -36,7 +36,7 @@ public class PencilTest {
 	@Test
 	public void whenPencilDegradesDuringWritingItReturnsAPartialString() {
 		Pencil minimalPointPencil = new Pencil(10, 4, 1000);
-		assertEquals("input outp  ", minimalPointPencil.write("input", " output"));
+		assertEquals("Tex ", minimalPointPencil.write("", "Text"));
 	}
 
 	// Tests for pencil point degradation
@@ -171,7 +171,7 @@ public class PencilTest {
 	@Test
 	public void whenPencilEraserRunsOutItErasesOnlyPartOfInput() {
 		Pencil lowEraserPencil = new Pencil(10, 1000, 3);
-		assertEquals("this str    has many words", lowEraserPencil.erase("this string has many words", "string"));
+		assertEquals("Buffalo B   ", lowEraserPencil.erase("Buffalo Bill", "Bill"));
 	}
 
 	// Tests for edit() function
