@@ -76,7 +76,16 @@ public class Pencil {
 	public Object edit(String input, String edits) {
 		int editLength = edits.length();
 		if(editLength > 0) {
-			String updatedInput = input.substring(0, erasedPointer) + edits;
+			String updatedInput = input.substring(0, erasedPointer);
+			for (int i = 0; i < editLength; i ++) {
+				if(input.charAt(erasedPointer + i) == ' ') {
+					updatedInput += edits.charAt(i);
+				}
+				else
+				{
+					updatedInput += "@";
+				}
+			}
 			updatedInput += input.substring(erasedPointer + editLength);
 			return updatedInput;
 		}
