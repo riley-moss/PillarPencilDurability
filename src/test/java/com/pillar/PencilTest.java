@@ -136,6 +136,6 @@ public class PencilTest {
 	public void whenPencilErasesALetterItDegradesTheEraserByOne() {
 		int prevEraserDurability = pencil.getEraserDurability();
 		pencil.erase("input and output and input","a");
-		assertTrue(prevEraserDurability > pencil.getEraserDurability());
+		assertTrue(prevEraserDurability == (pencil.getEraserDurability() + 1));
 	}
 }
