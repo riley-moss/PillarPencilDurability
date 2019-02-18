@@ -1,14 +1,16 @@
 package com.pillar;
 
 public class Pencil {
+	private int pencilLength;
 	private int initialPointDurability;
 	private int currentPointDurability;
-	private int pencilLength;
+	private int eraserDurability;
 	
-	public Pencil(int pencilLength, int pointDurability) {
+	public Pencil(int pencilLength, int pointDurability, int eraserDurability) {
 		this.pencilLength = pencilLength;
 		this.initialPointDurability = pointDurability;
 		this.currentPointDurability = pointDurability;
+		this.eraserDurability = eraserDurability;
 	}
 
 	public int getPointDurability() {
@@ -17,6 +19,10 @@ public class Pencil {
 	
 	public int getLength() {
 		return pencilLength;
+	}
+
+	public int getEraserDurability() {
+		return eraserDurability;
 	}
 	
 	public String write(String input, String adder) {
@@ -53,9 +59,11 @@ public class Pencil {
 				updatedInput += " ";
 			}
 			updatedInput += input.substring(index + erasedWord.length());
+			eraserDurability--;
 			return updatedInput;
 		}
 		return input;
 	}
+
 
 }
