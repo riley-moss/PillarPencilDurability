@@ -22,7 +22,7 @@ public class PencilTest {
 	
 	@Test
 	public void whenPencilIsPassedTwoStringsToWriteItReturnsTheStringsAppendedTogether() {
-		assertEquals("input output", pencil.write("input", " output"));
+		assertEquals("She sells sea shells down by the sea shore", pencil.write("She sells sea shells", " down by the sea shore"));
 	}
 	
 	@Test
@@ -121,7 +121,8 @@ public class PencilTest {
 	
 	@Test
 	public void whenPencilErasesAWordWithMultipleOccurrencesItErasesTheLastOccurrence() {
-		assertEquals("input and output     input", pencil.erase("input and output and input","and"));
+		assertEquals("How much wood would a woodchuck chuck if a woodchuck could       wood?", 
+				pencil.erase("How much wood would a woodchuck chuck if a woodchuck could chuck wood?","chuck"));
 	}
 	
 	//Test for eraser degradation
@@ -189,4 +190,5 @@ public class PencilTest {
 		String input = pencil.erase("this string has many words","string");
 		assertEquals("this paragra@@s many words",pencil.edit(input, "paragraph"));
 	}
+
 }
